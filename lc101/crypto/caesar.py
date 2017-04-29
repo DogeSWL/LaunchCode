@@ -1,25 +1,4 @@
-def alphabet_position(letter):
-    # a-z -> 97-122
-    # A-Z -> 65-90
-    asciiValue = ord(letter)
-
-    return asciiValue
-
-def rotate_character(char, rot):
-    a = alphabet_position(char)
-
-    if char.isupper():
-        if a+rot > 90:
-            return chr((a+rot-90)+64)
-        else:
-            return chr(a+rot)
-    if char.islower():
-        if a+rot > 122:
-            return chr((a+rot-122)+96)
-        else:
-            return chr(a+rot)
-    else:
-        return chr(a)
+from helpers import alphabet_position, rotate_character
 
 def encrypt(text, rot):
     rtnText = ""
@@ -30,9 +9,9 @@ def encrypt(text, rot):
     return rtnText
 
 def main():
-    a = input("Type a message:")
-    b = input("Rotate by:")
-    print(encrypt(a,int(b)))
+    from sys import argv
+    a = input("Type a message: ")
+    print(encrypt(str(a),int(argv[1])))
 
 if __name__ == "__main__":
     main()
