@@ -32,7 +32,7 @@ def encrypt(text, rot):
 def main():
     a = input("Type a message:")
     b = input("Rotate by:")
-    print(encrypt(a,b))
+    print(encrypt(a,int(b)))
 
 if __name__ == "__main__":
     main()
