@@ -9,9 +9,12 @@ def encrypt(text, rot):
     return rtnText
 
 def main():
-    from sys import argv
-    a = input("Type a message: ")
-    print(encrypt(str(a),int(argv[1])))
+    from sys import argv, exit
+    if argv[1].isdigit():
+        a = input("Type a message: ")
+        print(encrypt(str(a),int(argv[1])))
+    else:
+        exit()
 
 if __name__ == "__main__":
     main()

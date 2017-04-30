@@ -24,9 +24,13 @@ def encrypt(text,rotKey):
 # print(encrypt("The crow flies at midnight!", "boom"))
 
 def main():
-    from sys import argv
-    inA = input('Type a message: ')
-    print(encrypt(inA, argv[1]))
+    from sys import argv, exit
+    if any(str.isdigit(i) for i in argv[1]) == True:
+        print("Key should not be an number or special character, should be a character or string of characters")
+        exit()
+    else:
+        inA = input('Type a message: ')
+        print(encrypt(inA, argv[1]))
 
 if __name__ == '__main__':
     main()
