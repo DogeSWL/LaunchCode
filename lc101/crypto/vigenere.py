@@ -17,22 +17,21 @@ def encrypt(text,rotKey):
         else:
             rotKey_str += i
 
-    print(rotKey_str)
     for b in range(len(rotKey_str)):
         rtnText += rotate_character(text[b], alphabet_position(rotKey_str[b]))
 
     return rtnText
 
-print(encrypt("Sailing <3 ships thru br0ken harbors", "NeilYoung"))
 
-# def main():
-#     from sys import argv, exit
-#     if any(str.isdigit(i) for i in argv[1]) == True:
-#         print("Key should not be an number or special character, should be a character or string of characters")
-#         exit()
-#     else:
-#         inA = input('Type a message: ')
-#         print(encrypt(inA, argv[1]))
-#
-# if __name__ == '__main__':
-#     main()
+def main():
+    from sys import argv, exit
+
+    if any(not i.isalpha() for i in argv[1]):
+        print("Key should not be any number or special character, should be a character or string of characters")
+        exit()
+    else:
+        inA = input('Type a message: ')
+        print(encrypt(inA, argv[1]))
+
+if __name__ == '__main__':
+    main()
